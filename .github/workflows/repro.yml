@@ -12,12 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
-      - name: Run repro script
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Install .NET Runtime
         run: |
           wget https://dot.net/v1/dotnet-install.sh
           chmod +x dotnet-install.sh
           ./dotnet-install.sh --runtime dotnet --version ${{ matrix.version }}
 
-          dotnet run --project CS
-          dotnet run --project VB
+      - name: Run C#
+        run: dotnet run --project CS
+
+      - name: Run VB
+        run: dotnet run --project VB
