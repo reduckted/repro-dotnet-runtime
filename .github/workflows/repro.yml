@@ -19,7 +19,13 @@ jobs:
         run: |
           wget https://dot.net/v1/dotnet-install.sh
           chmod +x dotnet-install.sh
-          ./dotnet-install.sh --runtime dotnet --version ${{ matrix.version }}
+          ./dotnet-install.sh --runtime dotnet --version ${{ matrix.version }} --install-dir ./.dotnet
+          echo "./.dotnet" >> $GITHUB_PATH
+
+      - name: .NET Info
+        run: |
+          which dotnet
+          dotnet --info
 
       - name: Run C#
         run: dotnet run --project CS

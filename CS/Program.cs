@@ -7,6 +7,7 @@ public static class Program {
     public static int Main() {
         Widget<int> w = new();
         _ = w.ToList();
+        Console.WriteLine("Completed");
         return 0;
     }
 

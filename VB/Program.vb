@@ -3,6 +3,7 @@
     Public Shared Function Main(args() As String) As Integer
         Dim w As New Widget(Of Integer)
         w.ToList()
+        Console.WriteLine("Completed")
         Return 0
     End Function
 
