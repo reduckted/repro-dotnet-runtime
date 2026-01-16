@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CS\CS.csproj" />
+  <Project Path="VB\VB.vbproj" />
+</Solution>
