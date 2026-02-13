@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [10.0.1, 10.0.2]
+        version: [10.0.1, 10.0.2, 10.0.3]
 
     runs-on: ubuntu-latest
 
@@ -20,16 +20,13 @@ jobs:
           wget https://dot.net/v1/dotnet-install.sh
           chmod +x dotnet-install.sh
           ./dotnet-install.sh --runtime dotnet --version ${{ matrix.version }} --install-dir ./.dotnet
-          ./dotnet-install.sh --version 10.0.101 --install-dir ./.dotnet
+          ./dotnet-install.sh --version 10.0.103 --install-dir ./.dotnet
           echo "./.dotnet" >> $GITHUB_PATH
 
       - name: .NET Info
         run: |
           which dotnet
           dotnet --info
-
-      - name: Run C#
-        run: dotnet run --project CS
 
       - name: Run VB
         run: dotnet run --project VB
